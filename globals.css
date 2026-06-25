@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   Black Airforce Technologies: design tokens
+   Palette: a tight, minimal system built around one bold accent.
+   --------------------------------------------------------------- */
+:root {
+  --color-brand-red: #C00000;
+  --color-brand-red-dark: #930000;
+  --color-ink: #161616;
+  --color-paper: #FFFFFF;
+  --color-mist: #F4F4F5;
+  --color-steel: #6B6B70;
+  --color-line: #E2E2E4;
+
+  --background: var(--color-mist);
+  --foreground: var(--color-ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-brand-red: var(--color-brand-red);
+  --color-brand-red-dark: var(--color-brand-red-dark);
+  --color-ink: var(--color-ink);
+  --color-paper: var(--color-paper);
+  --color-mist: var(--color-mist);
+  --color-steel: var(--color-steel);
+  --color-line: var(--color-line);
+
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-mist);
+  color: var(--color-ink);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-red);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Signature element: a clipped top-right corner, used on cards, buttons
+   and badges throughout the site. A small nod to precision-cut hardware
+   that gives the brand a distinct silhouette instead of generic rounded
+   corners. Two sizes: .notch for large surfaces, .notch-sm for compact
+   ones (badges, small buttons). */
+.notch {
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+}
+
+.notch-sm {
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
+}
